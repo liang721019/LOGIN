@@ -22,12 +22,25 @@ namespace LOGIN
         }
 
         public virtual string Query_DB      //LOGIN登入用SQL語法
-        {
+        {            
             set;
             get;
-        }        
+        }
 
-        public virtual string App_LoginPW       //PW變數
+
+        public string ID_Login       //LOGIN登入用ID變數
+        {
+            set
+            {
+                Login_ID_tb.Text = value;
+            }
+            get
+            {
+                return Login_ID_tb.Text;
+            }
+        }
+
+        public string App_LoginPW       //PW變數
         {
             set;
             get;
@@ -48,14 +61,18 @@ namespace LOGIN
             //FM.ShowDialog(this);
             //this.Close();
         }
+        public virtual void V_login_Default()       //LOGIN需要用到的變數
+        {
+            App_LoginPW = fun.desEncrypt_A(Login_PWD_tb.Text, "naturalbiokeyLogin");
+            //Query_DB = @"exec [TEST_SLSYHI].[dbo].[SLS_DMS_Login] '" +
+            //                    Login_ID_tb.Text + @"','" + App_LoginPW + "'";
+            //Query_DB = @"exec [TEST_SLSYHI].[dbo].[SLS_DMS_Login] '" +
+            //                    ID_Login + @"','" + App_LoginPW + "'";
+        }
 
         public virtual void PRD_login()     //PRDLOGIN虛擬判斷方法
         {
-            App_LoginPW = fun.desEncrypt_A(Login_PWD_tb.Text, "naturalbiokeyLogin");
-            Query_DB = @"exec [TEST_SLSYHI].[dbo].[SLS_DMS_Login] '" +
-                                Login_ID_tb.Text + @"','" + App_LoginPW + "'";
-            //Query_DB = @"exec [TEST_SLSYHI].[dbo].[SLS_DMS_Login] '" +
-            //                    ID_Login + @"','" + App_LoginPW + "'";
+            V_login_Default();      //LOGIN需要用到的變數
             fun.ProductDB_ds(Query_DB);
             if (fun.ds_index.Tables[0].Rows.Count != 0)
             {                
