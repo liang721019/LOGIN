@@ -15,32 +15,31 @@ namespace LOGIN
     {
 
         init_function fun = new init_function();
-
-
+        
         public Login_main()
         {
             InitializeComponent();
         }
 
-        public string Query_DB      //LOGIN登入用SQL語法
-        {
-            set;
-            get;
-        }
-
-        public string App_LoginPW 
-        {
-            set;
-            get;
-        }
-
-        public string App_LoginNewPW
+        public virtual string Query_DB      //LOGIN登入用SQL語法
         {
             set;
             get;
         }        
 
-        public virtual void Vlogin()
+        public virtual string App_LoginPW       //PW變數
+        {
+            set;
+            get;
+        }
+
+        public virtual string App_LoginNewPW        //新PW變數 
+        {
+            set;
+            get;
+        }
+
+        public virtual void V_login()       //開窗設定
         {
             //FileManager FM = new FileManager();
             //FM.DMS_Service_ENV = Login_ServerCB.Text;       //server
@@ -50,16 +49,17 @@ namespace LOGIN
             //this.Close();
         }
 
-        public virtual void PRD_login()     //PRDLOGIN虛擬方法
+        public virtual void PRD_login()     //PRDLOGIN虛擬判斷方法
         {
             App_LoginPW = fun.desEncrypt_A(Login_PWD_tb.Text, "naturalbiokeyLogin");
             Query_DB = @"exec [TEST_SLSYHI].[dbo].[SLS_DMS_Login] '" +
                                 Login_ID_tb.Text + @"','" + App_LoginPW + "'";
+            //Query_DB = @"exec [TEST_SLSYHI].[dbo].[SLS_DMS_Login] '" +
+            //                    ID_Login + @"','" + App_LoginPW + "'";
             fun.ProductDB_ds(Query_DB);
             if (fun.ds_index.Tables[0].Rows.Count != 0)
-            {
-                //MessageBox.Show("登入成功!!");
-                Vlogin();
+            {                
+                V_login();
             }
             else
             {
