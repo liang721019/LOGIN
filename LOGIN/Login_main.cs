@@ -27,7 +27,7 @@ namespace LOGIN
             get;
         }
 
-        public virtual string ServerName
+        public string ServerName
         {            
             get
             {
@@ -35,7 +35,7 @@ namespace LOGIN
             }            
         }
 
-        public virtual string UID
+        public string UID
         {
             get
             {
