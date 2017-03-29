@@ -27,6 +27,21 @@ namespace LOGIN
             get;
         }
 
+        public virtual string ServerName
+        {            
+            get
+            {
+                return Login_ServerCB.Text;
+            }            
+        }
+
+        public virtual string UID
+        {
+            get
+            {
+                return Login_ID_tb.Text ;
+            }
+        }
 
         public string ID_Login       //LOGIN登入用ID變數
         {
@@ -64,13 +79,10 @@ namespace LOGIN
         public virtual void V_login_Default()       //LOGIN需要用到的變數
         {
             App_LoginPW = fun.desEncrypt_A(Login_PWD_tb.Text, "naturalbiokeyLogin");
-            //Query_DB = @"exec [TEST_SLSYHI].[dbo].[SLS_DMS_Login] '" +
-            //                    Login_ID_tb.Text + @"','" + App_LoginPW + "'";
-            //Query_DB = @"exec [TEST_SLSYHI].[dbo].[SLS_DMS_Login] '" +
-            //                    ID_Login + @"','" + App_LoginPW + "'";
+            
         }
 
-        public virtual void PRD_login()     //PRDLOGIN虛擬判斷方法
+        public virtual void PRD_login()     //PRD LOGIN虛擬判斷方法
         {
             V_login_Default();      //LOGIN需要用到的變數
             fun.ProductDB_ds(Query_DB);
