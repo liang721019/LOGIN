@@ -67,7 +67,7 @@ namespace LOGIN
             get;
         }
 
-        public virtual void V_login()       //開窗設定
+        public virtual void V_login_open()       //開窗設定
         {
             //FileManager FM = new FileManager();
             //FM.DMS_Service_ENV = Login_ServerCB.Text;       //server
@@ -77,19 +77,23 @@ namespace LOGIN
             //this.Close();
         }
 
-        public virtual void V_login_Default()       //LOGIN需要用到的變數
+        public virtual void V_login_SetENV()       //LOGIN需要用到的變數
         {
             App_LoginPW = fun.desEncrypt_A(Login_PWD_tb.Text, "naturalbiokeyLogin");
-            
+            Query_DB = @"";
         }
 
         public virtual void PRD_login()     //PRD LOGIN虛擬判斷方法
         {
-            V_login_Default();      //LOGIN需要用到的變數
+            V_login_SetENV();      //LOGIN需要用到的變數
             fun.ProductDB_ds(Query_DB);
+            if (fun.Check_error)
+            {
+
+            }
             if (fun.ds_index.Tables[0].Rows.Count != 0)
             {                
-                V_login();
+                V_login_open();
             }
             else
             {

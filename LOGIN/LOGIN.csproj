@@ -47,6 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LOGIN_DS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LOGIN_DS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Login_main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +72,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="LOGIN_DS.xsc">
+      <DependentUpon>LOGIN_DS.xsd</DependentUpon>
+    </None>
+    <None Include="LOGIN_DS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LOGIN_DS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="LOGIN_DS.xss">
+      <DependentUpon>LOGIN_DS.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
