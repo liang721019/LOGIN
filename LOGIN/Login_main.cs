@@ -21,7 +21,7 @@ namespace LOGIN
             InitializeComponent();
         }
 
-        public virtual string Query_DB      //LOGIN登入用SQL語法
+        public string Query_DB      //LOGIN登入用SQL語法
         {            
             set;
             get;
@@ -61,7 +61,7 @@ namespace LOGIN
             get;
         }
 
-        public virtual string App_LoginNewPW        //新PW變數 
+        public string App_LoginNewPW        //新PW變數 
         {
             set;
             get;
@@ -76,6 +76,7 @@ namespace LOGIN
             //FM.ShowDialog(this);
             //this.Close();
         }
+
         public virtual void V_login_Default()       //LOGIN需要用到的變數
         {
             App_LoginPW = fun.desEncrypt_A(Login_PWD_tb.Text, "naturalbiokeyLogin");
@@ -92,7 +93,7 @@ namespace LOGIN
             }
             else
             {
-                MessageBox.Show("帳密不正確!!", this.Text);
+                MessageBox.Show("密碼不正確!!", this.Text);
             }            
         }
 
