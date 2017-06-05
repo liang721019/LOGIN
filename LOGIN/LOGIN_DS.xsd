@@ -1,16 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
-<xs:schema id="LOGIN_DS" 
-                  targetNamespace="http://tempuri.org/LOGIN_DS.xsd"
-                  elementFormDefault="qualified"
-                  attributeFormDefault="qualified"
-                  xmlns="http://tempuri.org/LOGIN_DS.xsd"
-                  xmlns:mstns="http://tempuri.org/LOGIN_DS.xsd"
-                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                  xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
-                  xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
-    <xs:element name="LOGIN_DS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true">
-        <xs:complexType>
-            <xs:choice minOccurs="0" maxOccurs="unbounded"></xs:choice>
-        </xs:complexType>
-    </xs:element>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="LOGIN_DS" targetNamespace="http://tempuri.org/LOGIN_DS.xsd" xmlns:mstns="http://tempuri.org/LOGIN_DS.xsd" xmlns="http://tempuri.org/LOGIN_DS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="LOGIN_DS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="LOGIN_DS" msprop:Generator_UserDSName="LOGIN_DS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="LOGIN" msprop:Generator_TableClassName="LOGINDataTable" msprop:Generator_TableVarName="tableLOGIN" msprop:Generator_TablePropName="LOGIN" msprop:Generator_RowDeletingName="LOGINRowDeleting" msprop:Generator_RowChangingName="LOGINRowChanging" msprop:Generator_RowEvHandlerName="LOGINRowChangeEventHandler" msprop:Generator_RowDeletedName="LOGINRowDeleted" msprop:Generator_UserTableName="LOGIN" msprop:Generator_RowChangedName="LOGINRowChanged" msprop:Generator_RowEvArgName="LOGINRowChangeEvent" msprop:Generator_RowClassName="LOGINRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" minOccurs="0" />
+              <xs:element name="PW" msprop:Generator_ColumnVarNameInTable="columnPW" msprop:Generator_ColumnPropNameInRow="PW" msprop:Generator_ColumnPropNameInTable="PWColumn" msprop:Generator_UserColumnName="PW" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

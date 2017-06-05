@@ -14,48 +14,80 @@ namespace LOGIN
     public partial class Login_main : Form
     {
 
-        init_function fun = new init_function();
+        LOGIN_function fun = new LOGIN_function();
         
         public Login_main()
         {
             InitializeComponent();
         }
 
+        private void Login_main_Load(object sender, EventArgs e)
+        {
+            this.Text = "Login System";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;//視窗在中央打開
+            Login_ServerCB.Items.Add("PRD");
+            Login_ServerCB.Items.Add("QAS");
+            Login_ServerCB.Items.Add("DEV");
+            LoginMOD_ServerCB.Items.Add("PRD");
+            LoginMOD_ServerCB.Items.Add("QAS");
+            LoginMOD_ServerCB.Items.Add("DEV");
+        }
+
+        #region 變數
+        //************************************************************************//
         public string Query_DB      //LOGIN登入用SQL語法
-        {            
+        {
+            set;
+            get;
+        }
+
+        public string Query_DB1
+        {
             set;
             get;
         }
 
         public string ServerName
-        {            
+        {
             get
             {
                 return Login_ServerCB.Text;
-            }            
+            }
         }
 
         public string UID
         {
             get
             {
-                return Login_ID_tb.Text ;
+                return Login_ID_tb.Text;
             }
         }
 
         public string ID_Login       //LOGIN登入用ID變數
         {
-            set
-            {
-                Login_ID_tb.Text = value;
-            }
+            //set
+            //{
+            //    Login_ID_tb.Text = value;
+            //}
             get
             {
                 return Login_ID_tb.Text;
             }
         }
 
-        public string App_LoginPW       //PW變數
+        public string Modify_ID_Login
+        {
+            //set
+            //{
+            //    LoginMOD_ID_tb.Text = value;
+            //}
+            get
+            {
+                return LoginMOD_ID_tb.Text;
+            }            
+        }
+
+        public string App_LoginPW       //PW加密變數
         {
             set;
             get;
@@ -66,6 +98,11 @@ namespace LOGIN
             set;
             get;
         }
+        //************************************************************************//
+        #endregion
+
+        #region 方法
+        //************************************************************************//        
 
         public virtual void V_login_open()       //開窗設定
         {
@@ -77,93 +114,59 @@ namespace LOGIN
             //this.Close();
         }
 
-        public virtual void V_login_SetENV()       //LOGIN需要用到的變數
+        public virtual void V_login_SetENV()       //LOGIN設定變數用
         {
             App_LoginPW = fun.desEncrypt_A(Login_PWD_tb.Text, "naturalbiokeyLogin");
             Query_DB = @"";
         }
 
-        public virtual void PRD_login()     //PRD LOGIN虛擬判斷方法
+        public virtual void V_LOGPW_Modify_SetENV()       //ModifyPW設定變數用
         {
-            V_login_SetENV();      //LOGIN需要用到的變數
-            fun.ProductDB_ds(Query_DB);
-            if (fun.Check_error)
-            {
-
-            }
-            if (fun.ds_index.Tables[0].Rows.Count != 0)
-            {                
-                V_login_open();
-            }
-            else
-            {
-                MessageBox.Show("密碼不正確!!", this.Text);
-            }            
+            App_LoginPW = fun.desEncrypt_A(LoginOLD_PWD_tb.Text, "naturalbiokeyLogin");
+            App_LoginNewPW = fun.desEncrypt_A(LoginNEW_PWD_tb.Text, "naturalbiokeyLogin");
+            Query_DB = @"";
+            Query_DB1 = @"";
         }
 
-        private void Login_main_Load(object sender, EventArgs e)
+        public virtual void PRD_login()     //PRD LOGIN-虛擬判斷方法
         {
-            this.Text = "Login System";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;//視窗在中央打開
-            Login_ServerCB.Items.Add("PRD");
-            Login_ServerCB.Items.Add("QAS");
-            Login_ServerCB.Items.Add("DEV");           
-            LoginMOD_ServerCB.Items.Add("PRD");
-            LoginMOD_ServerCB.Items.Add("QAS");
-            LoginMOD_ServerCB.Items.Add("DEV");
-        }
-
-        private void DMS_Login_Button_Click(object sender, EventArgs e)     //登入
-        {
-            if (Login_ServerCB.Text != "")
+            fun.Check_error = false;
+            V_login_SetENV();      //LOGIN需要用到的變數            
+            fun.LOGIN_Connection(Query_DB);
+            if (!fun.Check_error)
             {
-                if (Login_ServerCB.Text == "PRD")
+                #region 內容
+                if (fun.ds_index.Tables[0].Rows.Count != 0)
                 {
-                    #region 內容
-                    PRD_login();                    
-                    
-                    #endregion
+                    V_login_open();
                 }
                 else
                 {
-                    MessageBox.Show("伺服器目前沒開放!!\n請選擇其他伺服器", this.Text);
+                    MessageBox.Show("密碼不正確!!", this.Text);
                 }
+                #endregion
                 
             }
-            else
+        }
+
+        public virtual void PRD_login_modify()          //PRD 修改密碼-虛擬判斷方法
+        {
+            #region 內容
+            fun.Check_error = false;
+            V_LOGPW_Modify_SetENV();       //ModifyPW設定變數用
+            fun.LOGIN_Connection(Query_DB);
+            if (!fun.Check_error)
             {
-                MessageBox.Show("請選擇伺服器!!", this.Text);
-
-            } 
-        }
-
-        private void DMS_Login_Cancel_Click(object sender, EventArgs e)     //取消
-        {
-            this.Close();
-        }
-
-        private void DMS_LoginMOD_Button_Click(object sender, EventArgs e)      //修改密碼<確定>
-        {
-            if (LoginMOD_ServerCB.Text != "")
-            {                
-                App_LoginPW = fun.desEncrypt_A(LoginOLD_PWD_tb.Text, "naturalbiokeyLogin");
-                fun.Query_DB = @"exec [TEST_SLSYHI].[dbo].[SLS_DMS_Login] '" +
-                                    LoginMOD_ID_tb.Text +
-                                    @"','" + App_LoginPW + "'";
-                fun.ProductDB_ds(fun.Query_DB);
+                #region 內容
                 if (fun.ds_index.Tables[0].Rows.Count == 0)
                 {
-                    MessageBox.Show("帳密不正確!!", this.Text);
+                    MessageBox.Show("密碼不正確!!", this.Text);
                 }
                 else
                 {
                     if (MessageBox.Show("確定要修改密碼？", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        App_LoginNewPW = fun.desEncrypt_A(LoginNEW_PWD_tb.Text, "naturalbiokeyLogin");
-                        fun.Query_DB = @"exec [TEST_SLSYHI].[dbo].[SLS_DMS_Login_ModifyPWD] '" +
-                                        LoginMOD_ID_tb.Text +
-                                        @"','" + App_LoginNewPW + "'";
-                        fun.DMS_modify(fun.Query_DB);
+                        fun.LOGIN_Connection(Query_DB1);
                         if (!fun.Check_error)
                         {
                             MessageBox.Show("密碼修改成功!!", this.Text);
@@ -172,18 +175,102 @@ namespace LOGIN
                         }
                     }
                 }
+                #endregion
+            }
+            
+            #endregion
+        }
+
+        private void SLS_Login()            //登入方法
+        {
+            #region 內容
+            if (Login_ServerCB.Text != "")
+            {
+                if (Login_ServerCB.Text == "PRD")
+                {
+                    #region 內容
+                    PRD_login();        //PRD LOGIN虛擬判斷方法
+                    #endregion
+                }
+                else
+                {
+                    MessageBox.Show("伺服器目前沒開放!!\n請選擇其他伺服器", this.Text);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("請選擇伺服器!!", this.Text);
+
+            }
+            #endregion
+        }
+
+        private void SLS_LoginModify()         //修改密碼<確定>的方法
+        {
+            #region 內容
+
+            if (LoginMOD_ServerCB.Text != "")
+            {
+                if (LoginMOD_ServerCB.Text == "PRD")
+                {
+                    PRD_login_modify();          //PRD 修改密碼-虛擬判斷方法
+                }
+                else
+                {
+                    MessageBox.Show("伺服器目前沒開放!!\n請選擇其他伺服器", this.Text);
+                }
             }
             else
             {
                 MessageBox.Show("請選擇伺服器!!", this.Text);
             }
+            #endregion
         }
 
-        private void DMS_LoginCancel_Button_Click(object sender, EventArgs e)       //修改密碼<取消>
+        private void SLS_Login_Cancel()         //取消方法
         {
-            fun.clearAir(DMS_Modify_panel);            
+            this.Close();
+        }
+
+        private void SLS_LoginModify_Cancel()          //修改密碼<取消>的方法
+        {
+            fun.clearAir(DMS_Modify_panel);
             Login_tabControl.SelectedIndex = 0;
         }
+
+        //************************************************************************//
+        #endregion
+
+        #region Button
+        //************************************************************************//
+        private void Login_Button_Click(object sender, EventArgs e)     //登入
+        {
+            SLS_Login();            //登入方法
+        }
+
+        private void Login_Cancel_Button_Click(object sender, EventArgs e)     //取消
+        {
+            SLS_Login_Cancel();         //取消方法            
+        }
+
+        private void LoginMOD_Button_Click(object sender, EventArgs e)      //修改密碼<確定>
+        {
+            SLS_LoginModify();         //修改密碼<確定>的方法
+        }
+
+        private void LoginModify_Cancel_Button_Click(object sender, EventArgs e)       //修改密碼<取消>
+        {
+            SLS_LoginModify_Cancel();          //修改密碼<取消>的方法            
+        }
+        //************************************************************************//
+        #endregion
+
+        #region 事件
+        //************************************************************************//
+
+        //************************************************************************//
+        #endregion
     }    
     
 }

@@ -30,7 +30,7 @@
         {
             this.LB_DMS_Login_ID = new System.Windows.Forms.Label();
             this.DMS_Login_panel = new System.Windows.Forms.Panel();
-            this.Login_Cancel = new System.Windows.Forms.Button();
+            this.Login_Cancel_Button = new System.Windows.Forms.Button();
             this.Login_ServerCB = new System.Windows.Forms.ComboBox();
             this.LB_DMS_Login_Server = new System.Windows.Forms.Label();
             this.Login_Button = new System.Windows.Forms.Button();
@@ -43,7 +43,7 @@
             this.DMS_Modify_panel = new System.Windows.Forms.Panel();
             this.LoginMOD_ID_tb = new System.Windows.Forms.TextBox();
             this.LoginMOD_Button = new System.Windows.Forms.Button();
-            this.LoginCancel_Button = new System.Windows.Forms.Button();
+            this.LoginModify_Cancel_Button = new System.Windows.Forms.Button();
             this.LoginNEW_PWD_tb = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.LoginMOD_ServerCB = new System.Windows.Forms.ComboBox();
@@ -70,7 +70,7 @@
             // DMS_Login_panel
             // 
             this.DMS_Login_panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DMS_Login_panel.Controls.Add(this.Login_Cancel);
+            this.DMS_Login_panel.Controls.Add(this.Login_Cancel_Button);
             this.DMS_Login_panel.Controls.Add(this.Login_ServerCB);
             this.DMS_Login_panel.Controls.Add(this.LB_DMS_Login_Server);
             this.DMS_Login_panel.Controls.Add(this.Login_Button);
@@ -85,15 +85,15 @@
             this.DMS_Login_panel.Size = new System.Drawing.Size(363, 253);
             this.DMS_Login_panel.TabIndex = 1;
             // 
-            // Login_Cancel
+            // Login_Cancel_Button
             // 
-            this.Login_Cancel.Location = new System.Drawing.Point(45, 187);
-            this.Login_Cancel.Name = "Login_Cancel";
-            this.Login_Cancel.Size = new System.Drawing.Size(106, 29);
-            this.Login_Cancel.TabIndex = 5;
-            this.Login_Cancel.Text = "取消";
-            this.Login_Cancel.UseVisualStyleBackColor = true;
-            this.Login_Cancel.Click += new System.EventHandler(this.DMS_Login_Cancel_Click);
+            this.Login_Cancel_Button.Location = new System.Drawing.Point(45, 187);
+            this.Login_Cancel_Button.Name = "Login_Cancel_Button";
+            this.Login_Cancel_Button.Size = new System.Drawing.Size(106, 29);
+            this.Login_Cancel_Button.TabIndex = 5;
+            this.Login_Cancel_Button.Text = "取消";
+            this.Login_Cancel_Button.UseVisualStyleBackColor = true;
+            this.Login_Cancel_Button.Click += new System.EventHandler(this.Login_Cancel_Button_Click);
             // 
             // Login_ServerCB
             // 
@@ -120,7 +120,7 @@
             this.Login_Button.TabIndex = 4;
             this.Login_Button.Text = "登入";
             this.Login_Button.UseVisualStyleBackColor = true;
-            this.Login_Button.Click += new System.EventHandler(this.DMS_Login_Button_Click);
+            this.Login_Button.Click += new System.EventHandler(this.Login_Button_Click);
             // 
             // Login_PWD_tb
             // 
@@ -187,7 +187,7 @@
             this.DMS_Modify_panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DMS_Modify_panel.Controls.Add(this.LoginMOD_ID_tb);
             this.DMS_Modify_panel.Controls.Add(this.LoginMOD_Button);
-            this.DMS_Modify_panel.Controls.Add(this.LoginCancel_Button);
+            this.DMS_Modify_panel.Controls.Add(this.LoginModify_Cancel_Button);
             this.DMS_Modify_panel.Controls.Add(this.LoginNEW_PWD_tb);
             this.DMS_Modify_panel.Controls.Add(this.label4);
             this.DMS_Modify_panel.Controls.Add(this.LoginMOD_ServerCB);
@@ -217,17 +217,17 @@
             this.LoginMOD_Button.TabIndex = 15;
             this.LoginMOD_Button.Text = "確定";
             this.LoginMOD_Button.UseVisualStyleBackColor = true;
-            this.LoginMOD_Button.Click += new System.EventHandler(this.DMS_LoginMOD_Button_Click);
+            this.LoginMOD_Button.Click += new System.EventHandler(this.LoginMOD_Button_Click);
             // 
-            // LoginCancel_Button
+            // LoginModify_Cancel_Button
             // 
-            this.LoginCancel_Button.Location = new System.Drawing.Point(45, 187);
-            this.LoginCancel_Button.Name = "LoginCancel_Button";
-            this.LoginCancel_Button.Size = new System.Drawing.Size(106, 29);
-            this.LoginCancel_Button.TabIndex = 14;
-            this.LoginCancel_Button.Text = "取消";
-            this.LoginCancel_Button.UseVisualStyleBackColor = true;
-            this.LoginCancel_Button.Click += new System.EventHandler(this.DMS_LoginCancel_Button_Click);
+            this.LoginModify_Cancel_Button.Location = new System.Drawing.Point(45, 187);
+            this.LoginModify_Cancel_Button.Name = "LoginModify_Cancel_Button";
+            this.LoginModify_Cancel_Button.Size = new System.Drawing.Size(106, 29);
+            this.LoginModify_Cancel_Button.TabIndex = 14;
+            this.LoginModify_Cancel_Button.Text = "取消";
+            this.LoginModify_Cancel_Button.UseVisualStyleBackColor = true;
+            this.LoginModify_Cancel_Button.Click += new System.EventHandler(this.LoginModify_Cancel_Button_Click);
             // 
             // LoginNEW_PWD_tb
             // 
@@ -324,7 +324,7 @@
         private System.Windows.Forms.Label LB_DMS_Login_Server;
         private System.Windows.Forms.Button Login_Button;
         private System.Windows.Forms.TextBox Login_PWD_tb;
-        private System.Windows.Forms.Button Login_Cancel;
+        private System.Windows.Forms.Button Login_Cancel_Button;
         private System.Windows.Forms.TabControl Login_tabControl;
         private System.Windows.Forms.TabPage Login_tabPage;
         private System.Windows.Forms.TabPage Modify_tabPage;
@@ -338,6 +338,6 @@
         private System.Windows.Forms.TextBox LoginNEW_PWD_tb;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button LoginMOD_Button;
-        private System.Windows.Forms.Button LoginCancel_Button;
+        private System.Windows.Forms.Button LoginModify_Cancel_Button;
     }
 }
