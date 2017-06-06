@@ -41,13 +41,19 @@ namespace LOGIN
             get;
         }
 
-        public string Query_DB1
+        public string Query_DB_LoginPW      //LOGIN修改密碼用SQL語法-舊
         {
             set;
             get;
         }
 
-        public string ServerName
+        public string Query_DB_LoginNewPW       //LOGIN修改密碼用SQL語法-新
+        {
+            set;
+            get;
+        }
+
+        public string ServerName        //取得伺服器名稱
         {
             get
             {
@@ -55,7 +61,7 @@ namespace LOGIN
             }
         }
 
-        public string UID
+        public string UID           //取得LOGIN使用者ID
         {
             get
             {
@@ -64,23 +70,15 @@ namespace LOGIN
         }
 
         public string ID_Login       //LOGIN登入用ID變數
-        {
-            //set
-            //{
-            //    Login_ID_tb.Text = value;
-            //}
+        {            
             get
             {
                 return Login_ID_tb.Text;
             }
         }
 
-        public string Modify_ID_Login
-        {
-            //set
-            //{
-            //    LoginMOD_ID_tb.Text = value;
-            //}
+        public string Modify_ID_Login       //取得LoginMOD_ID_tb字串
+        {            
             get
             {
                 return LoginMOD_ID_tb.Text;
@@ -88,6 +86,12 @@ namespace LOGIN
         }
 
         public string App_LoginPW       //PW加密變數
+        {
+            set;
+            get;
+        }
+
+        public string App_LoginOldPW        //舊PW變數
         {
             set;
             get;
@@ -122,10 +126,14 @@ namespace LOGIN
 
         public virtual void V_LOGPW_Modify_SetENV()       //ModifyPW設定變數用
         {
-            App_LoginPW = fun.desEncrypt_A(LoginOLD_PWD_tb.Text, "naturalbiokeyLogin");
+            App_LoginOldPW = fun.desEncrypt_A(LoginOLD_PWD_tb.Text, "naturalbiokeyLogin");
             App_LoginNewPW = fun.desEncrypt_A(LoginNEW_PWD_tb.Text, "naturalbiokeyLogin");
-            Query_DB = @"";
-            Query_DB1 = @"";
+            Query_DB_LoginPW = @"exec [TEST_SLSYHI].[dbo].[SLS_LOGIN_Check] '" +
+                                    Modify_ID_Login +
+                                    @"','" + App_LoginOldPW + "'";
+            Query_DB_LoginNewPW = @"exec [TEST_SLSYHI].[dbo].[SLS_DMS_Login_ModifyPWD] '" +
+                                    Modify_ID_Login +
+                                    @"','" + App_LoginNewPW + "'";
         }
 
         public virtual void PRD_login()     //PRD LOGIN-虛擬判斷方法
@@ -154,7 +162,7 @@ namespace LOGIN
             #region 內容
             fun.Check_error = false;
             V_LOGPW_Modify_SetENV();       //ModifyPW設定變數用
-            fun.LOGIN_Connection(Query_DB);
+            fun.LOGIN_Connection(Query_DB_LoginPW);
             if (!fun.Check_error)
             {
                 #region 內容
@@ -166,7 +174,7 @@ namespace LOGIN
                 {
                     if (MessageBox.Show("確定要修改密碼？", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        fun.LOGIN_Connection(Query_DB1);
+                        fun.LOGIN_Connection(Query_DB_LoginNewPW);
                         if (!fun.Check_error)
                         {
                             MessageBox.Show("密碼修改成功!!", this.Text);
