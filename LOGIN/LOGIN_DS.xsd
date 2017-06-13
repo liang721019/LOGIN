@@ -12,11 +12,24 @@
   <xs:element name="LOGIN_DS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="LOGIN_DS" msprop:Generator_UserDSName="LOGIN_DS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="LOGIN" msprop:Generator_TableClassName="LOGINDataTable" msprop:Generator_TableVarName="tableLOGIN" msprop:Generator_TablePropName="LOGIN" msprop:Generator_RowDeletingName="LOGINRowDeleting" msprop:Generator_RowChangingName="LOGINRowChanging" msprop:Generator_RowEvHandlerName="LOGINRowChangeEventHandler" msprop:Generator_RowDeletedName="LOGINRowDeleted" msprop:Generator_UserTableName="LOGIN" msprop:Generator_RowChangedName="LOGINRowChanged" msprop:Generator_RowEvArgName="LOGINRowChangeEvent" msprop:Generator_RowClassName="LOGINRow">
+        <xs:element name="SLS_QS_TEXT" msprop:Generator_TableClassName="SLS_QS_TEXTDataTable" msprop:Generator_TableVarName="tableSLS_QS_TEXT" msprop:Generator_TablePropName="SLS_QS_TEXT" msprop:Generator_RowDeletingName="SLS_QS_TEXTRowDeleting" msprop:Generator_RowChangingName="SLS_QS_TEXTRowChanging" msprop:Generator_RowEvHandlerName="SLS_QS_TEXTRowChangeEventHandler" msprop:Generator_RowDeletedName="SLS_QS_TEXTRowDeleted" msprop:Generator_UserTableName="SLS_QS_TEXT" msprop:Generator_RowChangedName="SLS_QS_TEXTRowChanged" msprop:Generator_RowEvArgName="SLS_QS_TEXTRowChangeEvent" msprop:Generator_RowClassName="SLS_QS_TEXTRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" minOccurs="0" />
-              <xs:element name="PW" msprop:Generator_ColumnVarNameInTable="columnPW" msprop:Generator_ColumnPropNameInRow="PW" msprop:Generator_ColumnPropNameInTable="PWColumn" msprop:Generator_UserColumnName="PW" type="xs:string" minOccurs="0" />
+              <xs:element name="EMP_ID" msprop:Generator_ColumnVarNameInTable="columnEMP_ID" msprop:Generator_ColumnPropNameInRow="EMP_ID" msprop:Generator_ColumnPropNameInTable="EMP_IDColumn" msprop:Generator_UserColumnName="EMP_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="EMP_Name" msprop:Generator_ColumnVarNameInTable="columnEMP_Name" msprop:Generator_ColumnPropNameInRow="EMP_Name" msprop:Generator_ColumnPropNameInTable="EMP_NameColumn" msprop:Generator_UserColumnName="EMP_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="QS_Login" msdata:Caption="Asset_Login" msprop:Generator_ColumnVarNameInTable="columnQS_Login" msprop:Generator_ColumnPropNameInRow="QS_Login" msprop:Generator_ColumnPropNameInTable="QS_LoginColumn" msprop:Generator_UserColumnName="QS_Login" type="xs:string" minOccurs="0" />
+              <xs:element name="QS_ADD" msdata:Caption="Asset_ROOT" msprop:Generator_ColumnVarNameInTable="columnQS_ADD" msprop:Generator_ColumnPropNameInRow="QS_ADD" msprop:Generator_ColumnPropNameInTable="QS_ADDColumn" msprop:Generator_UserColumnName="QS_ADD" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QS_Modify" msdata:Caption="Asset_ADD" msprop:Generator_ColumnVarNameInTable="columnQS_Modify" msprop:Generator_ColumnPropNameInRow="QS_Modify" msprop:Generator_ColumnPropNameInTable="QS_ModifyColumn" msprop:Generator_UserColumnName="QS_Modify" type="xs:string" minOccurs="0" />
+              <xs:element name="QS_Del" msdata:Caption="Asset_Query" msprop:Generator_ColumnVarNameInTable="columnQS_Del" msprop:Generator_ColumnPropNameInRow="QS_Del" msprop:Generator_ColumnPropNameInTable="QS_DelColumn" msprop:Generator_UserColumnName="QS_Del" type="xs:string" minOccurs="0" />
+              <xs:element name="Del_Flag" msprop:Generator_ColumnVarNameInTable="columnDel_Flag" msprop:Generator_ColumnPropNameInRow="Del_Flag" msprop:Generator_ColumnPropNameInTable="Del_FlagColumn" msprop:Generator_UserColumnName="Del_Flag" type="xs:string" minOccurs="0" />
+              <xs:element name="Create_Date" msprop:Generator_ColumnVarNameInTable="columnCreate_Date" msprop:Generator_ColumnPropNameInRow="Create_Date" msprop:Generator_ColumnPropNameInTable="Create_DateColumn" msprop:Generator_UserColumnName="Create_Date" type="xs:string" minOccurs="0" />
+              <xs:element name="Create_Time" msprop:Generator_ColumnVarNameInTable="columnCreate_Time" msprop:Generator_ColumnPropNameInRow="Create_Time" msprop:Generator_ColumnPropNameInTable="Create_TimeColumn" msprop:Generator_UserColumnName="Create_Time" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

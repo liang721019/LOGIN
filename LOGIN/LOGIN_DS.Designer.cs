@@ -24,7 +24,7 @@ namespace LOGIN {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class LOGIN_DS : global::System.Data.DataSet {
         
-        private LOGINDataTable tableLOGIN;
+        private SLS_QS_TEXTDataTable tableSLS_QS_TEXT;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace LOGIN {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["LOGIN"] != null)) {
-                    base.Tables.Add(new LOGINDataTable(ds.Tables["LOGIN"]));
+                if ((ds.Tables["SLS_QS_TEXT"] != null)) {
+                    base.Tables.Add(new SLS_QS_TEXTDataTable(ds.Tables["SLS_QS_TEXT"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace LOGIN {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public LOGINDataTable LOGIN {
+        public SLS_QS_TEXTDataTable SLS_QS_TEXT {
             get {
-                return this.tableLOGIN;
+                return this.tableSLS_QS_TEXT;
             }
         }
         
@@ -152,8 +152,8 @@ namespace LOGIN {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["LOGIN"] != null)) {
-                    base.Tables.Add(new LOGINDataTable(ds.Tables["LOGIN"]));
+                if ((ds.Tables["SLS_QS_TEXT"] != null)) {
+                    base.Tables.Add(new SLS_QS_TEXTDataTable(ds.Tables["SLS_QS_TEXT"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace LOGIN {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableLOGIN = ((LOGINDataTable)(base.Tables["LOGIN"]));
+            this.tableSLS_QS_TEXT = ((SLS_QS_TEXTDataTable)(base.Tables["SLS_QS_TEXT"]));
             if ((initTable == true)) {
-                if ((this.tableLOGIN != null)) {
-                    this.tableLOGIN.InitVars();
+                if ((this.tableSLS_QS_TEXT != null)) {
+                    this.tableSLS_QS_TEXT.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace LOGIN {
             this.Namespace = "http://tempuri.org/LOGIN_DS.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableLOGIN = new LOGINDataTable();
-            base.Tables.Add(this.tableLOGIN);
+            this.tableSLS_QS_TEXT = new SLS_QS_TEXTDataTable();
+            base.Tables.Add(this.tableSLS_QS_TEXT);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeLOGIN() {
+        private bool ShouldSerializeSLS_QS_TEXT() {
             return false;
         }
         
@@ -270,23 +270,37 @@ namespace LOGIN {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void LOGINRowChangeEventHandler(object sender, LOGINRowChangeEvent e);
+        public delegate void SLS_QS_TEXTRowChangeEventHandler(object sender, SLS_QS_TEXTRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class LOGINDataTable : global::System.Data.TypedTableBase<LOGINRow> {
+        public partial class SLS_QS_TEXTDataTable : global::System.Data.TypedTableBase<SLS_QS_TEXTRow> {
             
-            private global::System.Data.DataColumn columnID;
+            private global::System.Data.DataColumn columnEMP_ID;
             
-            private global::System.Data.DataColumn columnPW;
+            private global::System.Data.DataColumn columnEMP_Name;
+            
+            private global::System.Data.DataColumn columnQS_Login;
+            
+            private global::System.Data.DataColumn columnQS_ADD;
+            
+            private global::System.Data.DataColumn columnQS_Modify;
+            
+            private global::System.Data.DataColumn columnQS_Del;
+            
+            private global::System.Data.DataColumn columnDel_Flag;
+            
+            private global::System.Data.DataColumn columnCreate_Date;
+            
+            private global::System.Data.DataColumn columnCreate_Time;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LOGINDataTable() {
-                this.TableName = "LOGIN";
+            public SLS_QS_TEXTDataTable() {
+                this.TableName = "SLS_QS_TEXT";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -294,7 +308,7 @@ namespace LOGIN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal LOGINDataTable(global::System.Data.DataTable table) {
+            internal SLS_QS_TEXTDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -311,24 +325,80 @@ namespace LOGIN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected LOGINDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected SLS_QS_TEXTDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
+            public global::System.Data.DataColumn EMP_IDColumn {
                 get {
-                    return this.columnID;
+                    return this.columnEMP_ID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PWColumn {
+            public global::System.Data.DataColumn EMP_NameColumn {
                 get {
-                    return this.columnPW;
+                    return this.columnEMP_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn QS_LoginColumn {
+                get {
+                    return this.columnQS_Login;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn QS_ADDColumn {
+                get {
+                    return this.columnQS_ADD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn QS_ModifyColumn {
+                get {
+                    return this.columnQS_Modify;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn QS_DelColumn {
+                get {
+                    return this.columnQS_Del;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Del_FlagColumn {
+                get {
+                    return this.columnDel_Flag;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Create_DateColumn {
+                get {
+                    return this.columnCreate_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Create_TimeColumn {
+                get {
+                    return this.columnCreate_Time;
                 }
             }
             
@@ -343,46 +413,53 @@ namespace LOGIN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LOGINRow this[int index] {
+            public SLS_QS_TEXTRow this[int index] {
                 get {
-                    return ((LOGINRow)(this.Rows[index]));
+                    return ((SLS_QS_TEXTRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event LOGINRowChangeEventHandler LOGINRowChanging;
+            public event SLS_QS_TEXTRowChangeEventHandler SLS_QS_TEXTRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event LOGINRowChangeEventHandler LOGINRowChanged;
+            public event SLS_QS_TEXTRowChangeEventHandler SLS_QS_TEXTRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event LOGINRowChangeEventHandler LOGINRowDeleting;
+            public event SLS_QS_TEXTRowChangeEventHandler SLS_QS_TEXTRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event LOGINRowChangeEventHandler LOGINRowDeleted;
+            public event SLS_QS_TEXTRowChangeEventHandler SLS_QS_TEXTRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddLOGINRow(LOGINRow row) {
+            public void AddSLS_QS_TEXTRow(SLS_QS_TEXTRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LOGINRow AddLOGINRow(string ID, string PW) {
-                LOGINRow rowLOGINRow = ((LOGINRow)(this.NewRow()));
+            public SLS_QS_TEXTRow AddSLS_QS_TEXTRow(string EMP_ID, string EMP_Name, string QS_Login, string QS_ADD, string QS_Modify, string QS_Del, string Del_Flag, string Create_Date, string Create_Time) {
+                SLS_QS_TEXTRow rowSLS_QS_TEXTRow = ((SLS_QS_TEXTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID,
-                        PW};
-                rowLOGINRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowLOGINRow);
-                return rowLOGINRow;
+                        EMP_ID,
+                        EMP_Name,
+                        QS_Login,
+                        QS_ADD,
+                        QS_Modify,
+                        QS_Del,
+                        Del_Flag,
+                        Create_Date,
+                        Create_Time};
+                rowSLS_QS_TEXTRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSLS_QS_TEXTRow);
+                return rowSLS_QS_TEXTRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                LOGINDataTable cln = ((LOGINDataTable)(base.Clone()));
+                SLS_QS_TEXTDataTable cln = ((SLS_QS_TEXTDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -390,49 +467,75 @@ namespace LOGIN {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new LOGINDataTable();
+                return new SLS_QS_TEXTDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnID = base.Columns["ID"];
-                this.columnPW = base.Columns["PW"];
+                this.columnEMP_ID = base.Columns["EMP_ID"];
+                this.columnEMP_Name = base.Columns["EMP_Name"];
+                this.columnQS_Login = base.Columns["QS_Login"];
+                this.columnQS_ADD = base.Columns["QS_ADD"];
+                this.columnQS_Modify = base.Columns["QS_Modify"];
+                this.columnQS_Del = base.Columns["QS_Del"];
+                this.columnDel_Flag = base.Columns["Del_Flag"];
+                this.columnCreate_Date = base.Columns["Create_Date"];
+                this.columnCreate_Time = base.Columns["Create_Time"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
-                this.columnPW = new global::System.Data.DataColumn("PW", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPW);
+                this.columnEMP_ID = new global::System.Data.DataColumn("EMP_ID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEMP_ID);
+                this.columnEMP_Name = new global::System.Data.DataColumn("EMP_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEMP_Name);
+                this.columnQS_Login = new global::System.Data.DataColumn("QS_Login", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQS_Login);
+                this.columnQS_ADD = new global::System.Data.DataColumn("QS_ADD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQS_ADD);
+                this.columnQS_Modify = new global::System.Data.DataColumn("QS_Modify", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQS_Modify);
+                this.columnQS_Del = new global::System.Data.DataColumn("QS_Del", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQS_Del);
+                this.columnDel_Flag = new global::System.Data.DataColumn("Del_Flag", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDel_Flag);
+                this.columnCreate_Date = new global::System.Data.DataColumn("Create_Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreate_Date);
+                this.columnCreate_Time = new global::System.Data.DataColumn("Create_Time", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreate_Time);
+                this.columnQS_Login.Caption = "Asset_Login";
+                this.columnQS_ADD.Caption = "Asset_ROOT";
+                this.columnQS_ADD.MaxLength = 1;
+                this.columnQS_Modify.Caption = "Asset_ADD";
+                this.columnQS_Del.Caption = "Asset_Query";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LOGINRow NewLOGINRow() {
-                return ((LOGINRow)(this.NewRow()));
+            public SLS_QS_TEXTRow NewSLS_QS_TEXTRow() {
+                return ((SLS_QS_TEXTRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new LOGINRow(builder);
+                return new SLS_QS_TEXTRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(LOGINRow);
+                return typeof(SLS_QS_TEXTRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.LOGINRowChanged != null)) {
-                    this.LOGINRowChanged(this, new LOGINRowChangeEvent(((LOGINRow)(e.Row)), e.Action));
+                if ((this.SLS_QS_TEXTRowChanged != null)) {
+                    this.SLS_QS_TEXTRowChanged(this, new SLS_QS_TEXTRowChangeEvent(((SLS_QS_TEXTRow)(e.Row)), e.Action));
                 }
             }
             
@@ -440,8 +543,8 @@ namespace LOGIN {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.LOGINRowChanging != null)) {
-                    this.LOGINRowChanging(this, new LOGINRowChangeEvent(((LOGINRow)(e.Row)), e.Action));
+                if ((this.SLS_QS_TEXTRowChanging != null)) {
+                    this.SLS_QS_TEXTRowChanging(this, new SLS_QS_TEXTRowChangeEvent(((SLS_QS_TEXTRow)(e.Row)), e.Action));
                 }
             }
             
@@ -449,8 +552,8 @@ namespace LOGIN {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.LOGINRowDeleted != null)) {
-                    this.LOGINRowDeleted(this, new LOGINRowChangeEvent(((LOGINRow)(e.Row)), e.Action));
+                if ((this.SLS_QS_TEXTRowDeleted != null)) {
+                    this.SLS_QS_TEXTRowDeleted(this, new SLS_QS_TEXTRowChangeEvent(((SLS_QS_TEXTRow)(e.Row)), e.Action));
                 }
             }
             
@@ -458,14 +561,14 @@ namespace LOGIN {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.LOGINRowDeleting != null)) {
-                    this.LOGINRowDeleting(this, new LOGINRowChangeEvent(((LOGINRow)(e.Row)), e.Action));
+                if ((this.SLS_QS_TEXTRowDeleting != null)) {
+                    this.SLS_QS_TEXTRowDeleting(this, new SLS_QS_TEXTRowChangeEvent(((SLS_QS_TEXTRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveLOGINRow(LOGINRow row) {
+            public void RemoveSLS_QS_TEXTRow(SLS_QS_TEXTRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -492,7 +595,7 @@ namespace LOGIN {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "LOGINDataTable";
+                attribute2.FixedValue = "SLS_QS_TEXTDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -536,71 +639,267 @@ namespace LOGIN {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class LOGINRow : global::System.Data.DataRow {
+        public partial class SLS_QS_TEXTRow : global::System.Data.DataRow {
             
-            private LOGINDataTable tableLOGIN;
+            private SLS_QS_TEXTDataTable tableSLS_QS_TEXT;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal LOGINRow(global::System.Data.DataRowBuilder rb) : 
+            internal SLS_QS_TEXTRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableLOGIN = ((LOGINDataTable)(this.Table));
+                this.tableSLS_QS_TEXT = ((SLS_QS_TEXTDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ID {
+            public string EMP_ID {
                 get {
                     try {
-                        return ((string)(this[this.tableLOGIN.IDColumn]));
+                        return ((string)(this[this.tableSLS_QS_TEXT.EMP_IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("資料表 \'LOGIN\' 中資料行 \'ID\' 的值是 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("資料表 \'SLS_QS_TEXT\' 中資料行 \'EMP_ID\' 的值是 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tableLOGIN.IDColumn] = value;
+                    this[this.tableSLS_QS_TEXT.EMP_IDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string PW {
+            public string EMP_Name {
                 get {
                     try {
-                        return ((string)(this[this.tableLOGIN.PWColumn]));
+                        return ((string)(this[this.tableSLS_QS_TEXT.EMP_NameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("資料表 \'LOGIN\' 中資料行 \'PW\' 的值是 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("資料表 \'SLS_QS_TEXT\' 中資料行 \'EMP_Name\' 的值是 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tableLOGIN.PWColumn] = value;
+                    this[this.tableSLS_QS_TEXT.EMP_NameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIDNull() {
-                return this.IsNull(this.tableLOGIN.IDColumn);
+            public string QS_Login {
+                get {
+                    try {
+                        return ((string)(this[this.tableSLS_QS_TEXT.QS_LoginColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'SLS_QS_TEXT\' 中資料行 \'QS_Login\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSLS_QS_TEXT.QS_LoginColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIDNull() {
-                this[this.tableLOGIN.IDColumn] = global::System.Convert.DBNull;
+            public string QS_ADD {
+                get {
+                    try {
+                        return ((string)(this[this.tableSLS_QS_TEXT.QS_ADDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'SLS_QS_TEXT\' 中資料行 \'QS_ADD\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSLS_QS_TEXT.QS_ADDColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPWNull() {
-                return this.IsNull(this.tableLOGIN.PWColumn);
+            public string QS_Modify {
+                get {
+                    try {
+                        return ((string)(this[this.tableSLS_QS_TEXT.QS_ModifyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'SLS_QS_TEXT\' 中資料行 \'QS_Modify\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSLS_QS_TEXT.QS_ModifyColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPWNull() {
-                this[this.tableLOGIN.PWColumn] = global::System.Convert.DBNull;
+            public string QS_Del {
+                get {
+                    try {
+                        return ((string)(this[this.tableSLS_QS_TEXT.QS_DelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'SLS_QS_TEXT\' 中資料行 \'QS_Del\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSLS_QS_TEXT.QS_DelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Del_Flag {
+                get {
+                    try {
+                        return ((string)(this[this.tableSLS_QS_TEXT.Del_FlagColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'SLS_QS_TEXT\' 中資料行 \'Del_Flag\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSLS_QS_TEXT.Del_FlagColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Create_Date {
+                get {
+                    try {
+                        return ((string)(this[this.tableSLS_QS_TEXT.Create_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'SLS_QS_TEXT\' 中資料行 \'Create_Date\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSLS_QS_TEXT.Create_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Create_Time {
+                get {
+                    try {
+                        return ((string)(this[this.tableSLS_QS_TEXT.Create_TimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'SLS_QS_TEXT\' 中資料行 \'Create_Time\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSLS_QS_TEXT.Create_TimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEMP_IDNull() {
+                return this.IsNull(this.tableSLS_QS_TEXT.EMP_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEMP_IDNull() {
+                this[this.tableSLS_QS_TEXT.EMP_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEMP_NameNull() {
+                return this.IsNull(this.tableSLS_QS_TEXT.EMP_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEMP_NameNull() {
+                this[this.tableSLS_QS_TEXT.EMP_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsQS_LoginNull() {
+                return this.IsNull(this.tableSLS_QS_TEXT.QS_LoginColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetQS_LoginNull() {
+                this[this.tableSLS_QS_TEXT.QS_LoginColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsQS_ADDNull() {
+                return this.IsNull(this.tableSLS_QS_TEXT.QS_ADDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetQS_ADDNull() {
+                this[this.tableSLS_QS_TEXT.QS_ADDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsQS_ModifyNull() {
+                return this.IsNull(this.tableSLS_QS_TEXT.QS_ModifyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetQS_ModifyNull() {
+                this[this.tableSLS_QS_TEXT.QS_ModifyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsQS_DelNull() {
+                return this.IsNull(this.tableSLS_QS_TEXT.QS_DelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetQS_DelNull() {
+                this[this.tableSLS_QS_TEXT.QS_DelColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDel_FlagNull() {
+                return this.IsNull(this.tableSLS_QS_TEXT.Del_FlagColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDel_FlagNull() {
+                this[this.tableSLS_QS_TEXT.Del_FlagColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCreate_DateNull() {
+                return this.IsNull(this.tableSLS_QS_TEXT.Create_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCreate_DateNull() {
+                this[this.tableSLS_QS_TEXT.Create_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCreate_TimeNull() {
+                return this.IsNull(this.tableSLS_QS_TEXT.Create_TimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCreate_TimeNull() {
+                this[this.tableSLS_QS_TEXT.Create_TimeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -608,22 +907,22 @@ namespace LOGIN {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class LOGINRowChangeEvent : global::System.EventArgs {
+        public class SLS_QS_TEXTRowChangeEvent : global::System.EventArgs {
             
-            private LOGINRow eventRow;
+            private SLS_QS_TEXTRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LOGINRowChangeEvent(LOGINRow row, global::System.Data.DataRowAction action) {
+            public SLS_QS_TEXTRowChangeEvent(SLS_QS_TEXTRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LOGINRow Row {
+            public SLS_QS_TEXTRow Row {
                 get {
                     return this.eventRow;
                 }

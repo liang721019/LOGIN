@@ -87,7 +87,7 @@
             // 
             // Login_Cancel_Button
             // 
-            this.Login_Cancel_Button.Location = new System.Drawing.Point(45, 187);
+            this.Login_Cancel_Button.Location = new System.Drawing.Point(201, 187);
             this.Login_Cancel_Button.Name = "Login_Cancel_Button";
             this.Login_Cancel_Button.Size = new System.Drawing.Size(106, 29);
             this.Login_Cancel_Button.TabIndex = 5;
@@ -114,7 +114,7 @@
             // 
             // Login_Button
             // 
-            this.Login_Button.Location = new System.Drawing.Point(201, 187);
+            this.Login_Button.Location = new System.Drawing.Point(46, 187);
             this.Login_Button.Name = "Login_Button";
             this.Login_Button.Size = new System.Drawing.Size(106, 29);
             this.Login_Button.TabIndex = 4;
@@ -159,6 +159,7 @@
             this.Login_tabControl.SelectedIndex = 0;
             this.Login_tabControl.Size = new System.Drawing.Size(377, 292);
             this.Login_tabControl.TabIndex = 6;
+            this.Login_tabControl.SelectedIndexChanged += new System.EventHandler(this.Login_tabControl_SelectedIndexChanged);
             // 
             // Login_tabPage
             // 
@@ -207,7 +208,7 @@
             this.LoginMOD_ID_tb.Location = new System.Drawing.Point(119, 56);
             this.LoginMOD_ID_tb.Name = "LoginMOD_ID_tb";
             this.LoginMOD_ID_tb.Size = new System.Drawing.Size(188, 33);
-            this.LoginMOD_ID_tb.TabIndex = 9;
+            this.LoginMOD_ID_tb.TabIndex = 7;
             // 
             // LoginMOD_Button
             // 
@@ -221,10 +222,10 @@
             // 
             // LoginModify_Cancel_Button
             // 
-            this.LoginModify_Cancel_Button.Location = new System.Drawing.Point(45, 187);
+            this.LoginModify_Cancel_Button.Location = new System.Drawing.Point(46, 187);
             this.LoginModify_Cancel_Button.Name = "LoginModify_Cancel_Button";
             this.LoginModify_Cancel_Button.Size = new System.Drawing.Size(106, 29);
-            this.LoginModify_Cancel_Button.TabIndex = 14;
+            this.LoginModify_Cancel_Button.TabIndex = 16;
             this.LoginModify_Cancel_Button.Text = "取消";
             this.LoginModify_Cancel_Button.UseVisualStyleBackColor = true;
             this.LoginModify_Cancel_Button.Click += new System.EventHandler(this.LoginModify_Cancel_Button_Click);
@@ -235,7 +236,7 @@
             this.LoginNEW_PWD_tb.Name = "LoginNEW_PWD_tb";
             this.LoginNEW_PWD_tb.PasswordChar = '*';
             this.LoginNEW_PWD_tb.Size = new System.Drawing.Size(188, 33);
-            this.LoginNEW_PWD_tb.TabIndex = 13;
+            this.LoginNEW_PWD_tb.TabIndex = 9;
             // 
             // label4
             // 
@@ -252,7 +253,7 @@
             this.LoginMOD_ServerCB.Location = new System.Drawing.Point(119, 18);
             this.LoginMOD_ServerCB.Name = "LoginMOD_ServerCB";
             this.LoginMOD_ServerCB.Size = new System.Drawing.Size(188, 32);
-            this.LoginMOD_ServerCB.TabIndex = 7;
+            this.LoginMOD_ServerCB.TabIndex = 6;
             // 
             // label1
             // 
@@ -269,7 +270,7 @@
             this.LoginOLD_PWD_tb.Name = "LoginOLD_PWD_tb";
             this.LoginOLD_PWD_tb.PasswordChar = '*';
             this.LoginOLD_PWD_tb.Size = new System.Drawing.Size(188, 33);
-            this.LoginOLD_PWD_tb.TabIndex = 10;
+            this.LoginOLD_PWD_tb.TabIndex = 8;
             // 
             // label2
             // 

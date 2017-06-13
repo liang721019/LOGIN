@@ -15,6 +15,7 @@ namespace LOGIN
     {
 
         LOGIN_function fun = new LOGIN_function();
+        LOGIN_DS LOGINDS = new LOGIN_DS();
         
         public Login_main()
         {
@@ -69,7 +70,7 @@ namespace LOGIN
             }
         }
 
-        public string ID_Login       //LOGIN登入用ID變數
+        public string ID_Login       //LOGIN登入用ID變數**
         {            
             get
             {
@@ -98,6 +99,20 @@ namespace LOGIN
         }
 
         public string App_LoginNewPW        //新PW變數 
+        {
+            set;
+            get;
+        }
+
+        public LOGIN_DS LOD                  //dataset變數
+        {            
+            get
+            {
+                return LOGINDS;
+            }
+        }
+
+        public DataTable LOD_DT             //Login登入用DataTable變數
         {
             set;
             get;
@@ -138,13 +153,15 @@ namespace LOGIN
 
         public virtual void PRD_login()     //PRD LOGIN-虛擬判斷方法
         {
+            //LOD_DT = LOD.SLS_QS_LOGIN;
             fun.Check_error = false;
             V_login_SetENV();      //LOGIN需要用到的變數            
-            fun.LOGIN_Connection(Query_DB);
+            fun.USER_INFO(Query_DB, LOD_DT);
             if (!fun.Check_error)
             {
                 #region 內容
-                if (fun.ds_index.Tables[0].Rows.Count != 0)
+                //fun.ds_index.Tables[0].Rows.Count != 0
+                if (LOD_DT.Rows.Count != 0)
                 {
                     V_login_open();
                 }
@@ -152,8 +169,7 @@ namespace LOGIN
                 {
                     MessageBox.Show("密碼不正確!!", this.Text);
                 }
-                #endregion
-                
+                #endregion                
             }
         }
 
@@ -196,9 +212,7 @@ namespace LOGIN
             {
                 if (Login_ServerCB.Text == "PRD")
                 {
-                    #region 內容
-                    PRD_login();        //PRD LOGIN虛擬判斷方法
-                    #endregion
+                    PRD_login();        //PRD LOGIN虛擬判斷方法                    
                 }
                 else
                 {
@@ -271,12 +285,24 @@ namespace LOGIN
         {
             SLS_LoginModify_Cancel();          //修改密碼<取消>的方法            
         }
+
         //************************************************************************//
         #endregion
 
         #region 事件
         //************************************************************************//
+        private void Login_tabControl_SelectedIndexChanged(object sender, EventArgs e)      //Login_tabControl切換分頁時的事件
+        {
+            if (Login_tabControl.SelectedIndex == 0)
+            {
 
+            }
+            else if (Login_tabControl.SelectedIndex == 1)
+            {
+                LoginMOD_ServerCB.SelectedItem = Login_ServerCB.SelectedItem;
+                LoginMOD_ID_tb.Text = Login_ID_tb.Text;
+            }
+        }
         //************************************************************************//
         #endregion
     }    
