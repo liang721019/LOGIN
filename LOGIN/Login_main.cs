@@ -156,7 +156,7 @@ namespace LOGIN
             //LOD_DT = LOD.SLS_QS_LOGIN;
             fun.Check_error = false;
             V_login_SetENV();      //LOGIN需要用到的變數            
-            fun.USER_INFO(Query_DB, LOD_DT);
+            fun.LOGIN_Connection(Query_DB, LOD_DT);
             if (!fun.Check_error)
             {
                 #region 內容
@@ -173,12 +173,34 @@ namespace LOGIN
             }
         }
 
+        public virtual void DEV_login()     //DEV LOGIN-虛擬判斷方法
+        {
+            //LOD_DT = LOD.SLS_QS_LOGIN;
+            fun.Check_error = false;
+            V_login_SetENV();      //LOGIN需要用到的變數            
+            fun.LOGIN_Connection(Query_DB, LOD_DT);
+            if (!fun.Check_error)
+            {
+                #region 內容
+                //fun.ds_index.Tables[0].Rows.Count != 0
+                if (LOD_DT.Rows.Count != 0)
+                {
+                    V_login_open();
+                }
+                else
+                {
+                    MessageBox.Show("密碼不正確!!", this.Text);
+                }
+                #endregion
+            }
+        }
+
         public virtual void PRD_login_modify()          //PRD 修改密碼-虛擬判斷方法
         {
             #region 內容
             fun.Check_error = false;
             V_LOGPW_Modify_SetENV();       //ModifyPW設定變數用
-            fun.LOGIN_Connection(Query_DB_LoginPW);
+            fun.LOGIN_Connection(Query_DB_LoginPW);            
             if (!fun.Check_error)
             {
                 #region 內容
@@ -213,6 +235,10 @@ namespace LOGIN
                 if (Login_ServerCB.Text == "PRD")
                 {
                     PRD_login();        //PRD LOGIN虛擬判斷方法                    
+                }
+                else if (Login_ServerCB.Text == "DEV-text")
+                {
+                    DEV_login();        //DEV LOGIN虛擬判斷方法 
                 }
                 else
                 {
