@@ -25,6 +25,7 @@ namespace LOGIN
         private void Login_main_Load(object sender, EventArgs e)
         {
             this.Text = "Login System";
+            //fun.ServiceName = Login_ServerCB.Text.Trim();       //設定DB連線server
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;//視窗在中央打開
             Login_ServerCB.Items.Add("PRD");
             Login_ServerCB.Items.Add("QAS");
@@ -154,6 +155,7 @@ namespace LOGIN
         public virtual void PRD_login()     //PRD LOGIN-虛擬判斷方法
         {
             //LOD_DT = LOD.SLS_QS_LOGIN;
+            fun.ServiceName = Login_ServerCB.Text.Trim();       //設定DB連線server
             fun.Check_error = false;
             V_login_SetENV();      //LOGIN需要用到的變數            
             fun.LOGIN_Connection(Query_DB, LOD_DT);
@@ -176,6 +178,7 @@ namespace LOGIN
         public virtual void DEV_login()     //DEV LOGIN-虛擬判斷方法
         {
             //LOD_DT = LOD.SLS_QS_LOGIN;
+            fun.ServiceName = Login_ServerCB.Text.Trim();       //設定DB連線server
             fun.Check_error = false;
             V_login_SetENV();      //LOGIN需要用到的變數            
             fun.LOGIN_Connection(Query_DB, LOD_DT);
@@ -233,10 +236,10 @@ namespace LOGIN
             if (Login_ServerCB.Text != "")
             {
                 if (Login_ServerCB.Text == "PRD")
-                {
+                {                    
                     PRD_login();        //PRD LOGIN虛擬判斷方法                    
                 }
-                else if (Login_ServerCB.Text == "DEV-text")
+                else if (Login_ServerCB.Text == "DEV")
                 {
                     DEV_login();        //DEV LOGIN虛擬判斷方法 
                 }
