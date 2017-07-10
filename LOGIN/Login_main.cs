@@ -25,7 +25,7 @@ namespace LOGIN
         private void Login_main_Load(object sender, EventArgs e)
         {
             this.Text = "Login System";
-            //fun.ServiceName = Login_ServerCB.Text.Trim();       //設定DB連線server
+            fun.ServiceName = Login_ServerCB.Text.Trim();       //設定DB連線server
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;//視窗在中央打開
             Login_ServerCB.Items.Add("PRD");
             Login_ServerCB.Items.Add("QAS");
@@ -59,7 +59,7 @@ namespace LOGIN
         {
             get
             {
-                return Login_ServerCB.Text;
+                return Login_ServerCB.Text.Trim();
             }
         }
 
@@ -126,6 +126,7 @@ namespace LOGIN
 
         public virtual void V_login_open()       //開窗設定
         {
+            
             //FileManager FM = new FileManager();
             //FM.DMS_Service_ENV = Login_ServerCB.Text;       //server
             //FM.DMS_UID = Login_ID_tb.Text;          //使用者ID
@@ -171,7 +172,7 @@ namespace LOGIN
                 {
                     MessageBox.Show("密碼不正確!!", this.Text);
                 }
-                #endregion                
+                #endregion
             }
         }
 
