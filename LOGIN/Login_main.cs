@@ -55,7 +55,7 @@ namespace LOGIN
             get;
         }
 
-        public string ServerName        //取得伺服器名稱
+        public string GETServerName        //取得伺服器名稱
         {
             get
             {
@@ -179,7 +179,7 @@ namespace LOGIN
         public virtual void DEV_login()     //DEV LOGIN-虛擬判斷方法
         {
             //LOD_DT = LOD.SLS_QS_LOGIN;
-            //fun.ServiceName = Login_ServerCB.Text.Trim();       //設定DB連線server
+            fun.ServiceName = Login_ServerCB.Text.Trim();       //設定DB連線server
             fun.Check_error = false;
             V_login_SetENV();      //LOGIN需要用到的變數
             fun.LOGIN_Connection(Query_DB, LOD_DT);
