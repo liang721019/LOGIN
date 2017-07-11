@@ -145,10 +145,10 @@ namespace LOGIN
         {
             App_LoginOldPW = fun.desEncrypt_A(LoginOLD_PWD_tb.Text, "naturalbiokeyLogin");
             App_LoginNewPW = fun.desEncrypt_A(LoginNEW_PWD_tb.Text, "naturalbiokeyLogin");
-            Query_DB_LoginPW = @"exec [TEST_SLSYHI].[dbo].[SLS_LOGIN_Check] '" +
+            Query_DB_LoginPW = @"exec [dbo].[SLS_LOGIN_Check] '" +
                                     Modify_ID_Login +
                                     @"','" + App_LoginOldPW + "'";
-            Query_DB_LoginNewPW = @"exec [TEST_SLSYHI].[dbo].[SLS_DMS_Login_ModifyPWD] '" +
+            Query_DB_LoginNewPW = @"exec [dbo].[SLS_LOGIN_ModifyPWD] '" +
                                     Modify_ID_Login +
                                     @"','" + App_LoginNewPW + "'";
         }
@@ -179,9 +179,9 @@ namespace LOGIN
         public virtual void DEV_login()     //DEV LOGIN-虛擬判斷方法
         {
             //LOD_DT = LOD.SLS_QS_LOGIN;
-            fun.ServiceName = Login_ServerCB.Text.Trim();       //設定DB連線server
+            //fun.ServiceName = Login_ServerCB.Text.Trim();       //設定DB連線server
             fun.Check_error = false;
-            V_login_SetENV();      //LOGIN需要用到的變數            
+            V_login_SetENV();      //LOGIN需要用到的變數
             fun.LOGIN_Connection(Query_DB, LOD_DT);
             if (!fun.Check_error)
             {
@@ -210,7 +210,7 @@ namespace LOGIN
                 #region 內容
                 if (fun.ds_index.Tables[0].Rows.Count == 0)
                 {
-                    MessageBox.Show("密碼不正確!!", this.Text);
+                    MessageBox.Show("帳號不存在or密碼不正確!!", this.Text);
                 }
                 else
                 {
@@ -228,6 +228,37 @@ namespace LOGIN
                 #endregion
             }
             
+            #endregion
+        }
+
+        public virtual void DEV_login_modify()          //DEV 修改密碼-虛擬判斷方法
+        {
+            #region 內容
+            fun.Check_error = false;
+            V_LOGPW_Modify_SetENV();       //ModifyPW設定變數用
+            fun.LOGIN_Connection(Query_DB_LoginPW);
+            if (!fun.Check_error)
+            {
+                #region 內容
+                if (fun.ds_index.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("密碼不正確!!", this.Text);
+                }
+                else
+                {
+                    if (MessageBox.Show("確定要修改密碼？", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        fun.LOGIN_Connection(Query_DB_LoginNewPW);
+                        if (!fun.Check_error)
+                        {
+                            MessageBox.Show("密碼修改成功!!", this.Text);
+                            fun.clearAir(DMS_Modify_panel);
+                            Login_tabControl.SelectedIndex = 0;
+                        }
+                    }
+                }
+                #endregion
+            }
             #endregion
         }
 
@@ -325,7 +356,8 @@ namespace LOGIN
         {
             if (Login_tabControl.SelectedIndex == 0)
             {
-
+                Login_ServerCB.SelectedItem = LoginMOD_ServerCB.SelectedItem;
+                Login_ID_tb.Text = LoginMOD_ID_tb.Text;
             }
             else if (Login_tabControl.SelectedIndex == 1)
             {
